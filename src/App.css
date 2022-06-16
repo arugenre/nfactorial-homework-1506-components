@@ -4,11 +4,29 @@
   --main-font-family: DIN, Helvetica, Arial, sans-serif;
 }
 
+.content-layout.black {
+  background-color: #151515;
+}
+
+.content-layout.light {
+  background-color: rgb(131, 132, 141);
+  color: black;
+}
 
 header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+}
+footer {
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-image: url(https://static-mh.content.disney.io/starwars/assets/footer/vader_2-86e8fdb4e26d.jpg);
 }
 
 input {
@@ -66,10 +84,16 @@ hr {
   cursor: pointer;
 }
 
+.item-list-layout.dark {
+  color: white;
+}
+.item-list-layout.light {
+  color: black;
+}
 .item-list-layout {
   border: solid 1px var(--secondary-bg-color);
   display: grid;
-  color: white;
+  color: black;
   grid-template-columns: 1fr 1fr;
   padding: 1rem;
 }

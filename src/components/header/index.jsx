@@ -5,6 +5,14 @@ import { ReactComponent as FacebookLogoSVG } from "../../assets/facebook.svg";
 import { ReactComponent as InstagramLogoSVG } from "../../assets/instagram.svg";
 import { ReactComponent as TwitterLogoSVG } from "../../assets/twitter.svg";
 import { ReactComponent as YoutubeLogoSVG } from "../../assets/youtube.svg";
+// import { DarkModeContext } from "../context/darkModeContext";
+// import { useContext } from "react";
+import TextField from "@mui/material/TextField";
+import IconButton from '@mui/material/IconButton';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useContext } from "react";
+import { DefaultContext } from "../../Context";
 
 //массив данных ссылок
 const swLinks = [
@@ -30,9 +38,10 @@ const swLinks = [
   },
 ];
 
-export const Header = ({ fan }) => {
+export const Header = ({ fan, mode }) => {
+  const {handleModeChange} = useContext(DefaultContext);
   return (
-    <header>
+    <header >
       <div className="links-layout">
         {swLinks.map((link) => (
           <a
@@ -50,10 +59,14 @@ export const Header = ({ fan }) => {
       <StarWarsLogoSVG />
       <div className="search-layout">
         <IconSearchSVG className="search-icon" />
-        <input placeholder="Search Star Wars" type="text" />
+        <TextField sx={{input: {borderRadius: '10px', backgroundColor: 'var(--secondary-bg-color)'}}} label="Search Star Wars..." variant="filled" placeholder="Search Star Wars..."size="small"  />
         <div style={{ color: "white", paddingTop: "1rem" }}>
           I am fan of: {fan}
         </div>
+
+        <IconButton onClick={handleModeChange}  style={{color:"white"}}>
+            {mode==="dark"?<Brightness4Icon/>:<Brightness7Icon/>}
+          </IconButton>
       </div>
     </header>
   );

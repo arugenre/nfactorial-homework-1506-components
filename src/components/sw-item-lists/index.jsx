@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { DefaultContext } from "../../Context";
 
-export const ItemLists = ({ item, children, type }) => {
+export const ItemLists = ({ item, children, type, mode }) => {
   const { handleCreateFan } = useContext(DefaultContext);
 
   return (
-    <div key={item.name} className="item-list-layout">
+    <div key={item.name} className={`item-list-layout ${mode}`}>
       <div>
         <p>name: {item.name}</p>
         {children}
